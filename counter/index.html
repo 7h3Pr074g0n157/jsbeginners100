@@ -3,59 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Counter</title>
-    <style>
-      * {
-        padding: 0;
-        margin: 0;
-        color: #fff;
-        text-transform: uppercase;
-      }
-
-      body {
-        height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: burlywood;
-        font-family: Arial;
-        font-size: 10px;
-      }
-
-      div {
-        width: 15rem;
-        height: 25rem;
-        border: 1px solid #fff;
-        box-shadow: 1px 2px 5px #000;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        font-size: 1rem;
-      }
-
-      h1 {
-        font-weight: 100;
-      }
-
-      div p#number {
-        font-size: 5rem;
-        color: grey;
-      }
-
-      div p#buttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-      }
-
-      button {
-        padding: 0.5rem;
-        border: none;
-        margin: 0.5rem;
-        box-shadow: 1px 2px 5px #000;
-        background-color: #0d2c54;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <div>
@@ -67,23 +15,5 @@
       </p>
     </div>
   </body>
-  <script>
-    function minus(num) {
-      num += 1;
-
-      return num;
-    }
-    function plus(num) {
-      num -= 1;
-      return num;
-    }
-    (function () {
-      const btnMinus = document.getElementById('minus');
-      const btnPlus = document.getElementById('plus');
-      const number = document.getElementById('number');
-
-      btnMinus.addEventListener('click', minus());
-      btnPlus.addEventListener('click', plus());
-    })();
-  </script>
+  <script src="script.js"></script>
 </html>
