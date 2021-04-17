@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Random Quotes Generator</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+      }
+
+      div {
+        width: 25rem;
+        height: 25rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #b09e99;
+      }
+
+      button {
+        padding: 1rem;
+        border: 0.2rem solid #6ca5e6;
+        margin: 2rem;
+        margin-top: 0rem;
+        background-color: #64b6ac;
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      blockquote {
+        height: 100%;
+        padding: 1rem;
+        background-color: #d8cfcc;
+      }
+
+      blockquote p {
+        font-size: 2rem;
+        color: #6c757d;
+      }
+
+      blockquote cite {
+        margin: 1rem;
+        display: block;
+        color: #64b6ac;
+        text-align: right;
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="button">Generate Quote</button>
+      <blockquote id="blockquote" cite="">
+        <p></p>
+        <cite id="cite"></cite>
+      </blockquote>
+    </div>
+  </body>
+
+  <script>
+    const quotes = [
+      {
+        quote:
+          "Life is too short and sweet to be spent by cribbing and complaining about things. Here are some random quotes about the most wonderful gift that we've got",
+        author: ' Life',
+      },
+      {
+        quote:
+          'Humor is richly rewarding to the person who employs it. It has some value in gaining and holding attention. But it has no persuasive value at all',
+        author: 'John Kenneth Galbraith',
+      },
+      {
+        quote:
+          'God save me from my friends. I can protect myself from my enemies.',
+        author: 'Claude Louis Hector de Villars ',
+      },
+      {
+        quote:
+          'The price of anything is the amount of life you exchange for it.',
+        author: 'David Thoreau',
+      },
+      {
+        quote:
+          'Life is like a landscape. You live in the midst of it but can describe it only from the vantage point of distance. ',
+        author: 'Charles Lindbergh',
+      },
+      {
+        quote:
+          'A critic is someone who never actually goes to the battle, yet who afterwards comes out shooting the wounded.',
+        author: ' Tyne Daly',
+      },
+    ];
+    const button = document.getElementById('button');
+    const blockquote = document.getElementById('blockquote');
+    const cite = document.getElementById('cite');
+
+    function generateQuote() {
+      const rndNum = Math.floor(Math.random() * quotes.length);
+      const quote = quotes[rndNum];
+      return quote;
+    }
+
+    function addQuote() {
+      const quote = generateQuote();
+      blockquote.cite = quote.author;
+      blockquote.children[0].textContent = quote.quote;
+      cite.textContent = '- ' + quote.author;
+    }
+
+    window.addEventListener('DOMContentLoaded', addQuote);
+    button.addEventListener('click', addQuote);
+  </script>
+</html>

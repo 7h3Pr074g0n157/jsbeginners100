@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hex Change Background color</title>
+    <style>
+      body {
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1,
+      button {
+        text-transform: uppercase;
+      }
+
+      button {
+        width: 100px;
+        height: 50px;
+        border: 1px solid black;
+        background-color: transparent;
+        opacity: 0.3;
+      }
+      button:hover {
+        border: 1px solid white;
+        background-color: black;
+        opacity: 1;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Hex Color: <span id="hex">#FFFFFF</span></h1>
+      <button id="button">Click Me</button>
+    </div>
+  </body>
+  <script>
+    const hexVals = [
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      'A',
+      'B',
+      'C',
+      'D',
+      'E',
+      'F',
+    ];
+
+    document.getElementById('button').addEventListener('click', () => {
+      let hex = '#';
+      for (let i = 0; i < 6; i++) {
+        hex += hexVals[Math.floor(Math.random() * hexVals.length)];
+      }
+      document.getElementsByTagName('body')[0].style.backgroundColor = hex;
+      document.getElementById('hex').textContent = hex;
+    });
+  </script>
+</html>

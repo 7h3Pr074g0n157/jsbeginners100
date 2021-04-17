@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Change Color Background</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      button {
+        width: 100px;
+        height: 50px;
+        border: 1px solid black;
+        margin: 50% 50%;
+        background-color: transparent;
+        opacity: 0.3;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">Click Me!</button>
+  </body>
+  <script>
+    const colors = ['red', 'green', 'blue', 'purple', 'pink'];
+    let i = 0;
+    document.getElementById('button').addEventListener('click', () => {
+      document.getElementsByTagName('body')[0].style.backgroundColor =
+        colors[i];
+      i = i == colors.length - 1 ? 0 : i + 1;
+    });
+  </script>
+</html>
