@@ -112,6 +112,17 @@ section#store div#sort {
   justify-content: space-evenly;
 }
 
+section#store div#sort button {
+  padding: 10px;
+  border: 1px solid #000;
+}
+
+section#store div#sort button:hover {
+  background-color: #000;
+  color: #ef7998;
+  cursor: pointer;
+}
+
 section#store div#search {
   width: 50%;
   display: flex;
