@@ -4,66 +4,41 @@
   const btnCupcakes = document.getElementById('cupcakes');
   const btnSweets = document.getElementById('sweets');
   const btnDoughnuts = document.getElementById('doughnuts');
+  const frmInput = document.getElementById('input');
   const articles = document.querySelectorAll('#articles figure');
 
-  const cakes = [],
-    cupcakes = [],
-    sweets = [],
-    doughnuts = [];
-
-  function getType(btn) {
-    return btn.textContent.toLowerCase();
-  }
-
-  function splitUpArticles() {
+  function toggleDisplay(display) {
     for (let article of articles) {
-      const data = {
-        id: article.dataset.id,
-        type: article.dataset.type,
-        price: article.dataset.price,
-      };
-
-      switch (data.type) {
-        case getType(btnCakes):
-          cakes.push(data);
-          break;
-        case getType(btnCupcakes):
-          cupcakes.push(data);
-          break;
-        case getType(btnSweets):
-          sweets.push(data);
-          break;
-        case getType(btnDoughnuts):
-          doughnuts.push(data);
-          break;
-      }
+      article.style.display = display ? 'block' : 'none';
     }
   }
-  function displayAll() {
-    for (let article of articles) {
+
+  function displaySearch(filteredArticles) {
+    toggleDisplay(false);
+
+    for (let article of filteredArticles) {
       article.style.display = 'block';
     }
   }
 
-  function selectType(getType, btn) {
-    let type = getType(btn);
+  function filterArticles(event, getType, btn) {
+    const toFilter =
+      event.target.id == 'input' ? event.target.value : event.target.id;
+    const regex = new RegExp(`^${toFilter}`, 'i');
 
-    displayAll();
+    const filteredArticles = [...articles].filter((article) => {
+      return (
+        regex.test(article.dataset.type) || regex.test(article.dataset.price)
+      );
+    });
 
-    for (let article of articles) {
-      if (article.dataset.type !== type) {
-        article.style.display = 'none';
-      }
-    }
+    displaySearch(filteredArticles);
   }
 
-  splitUpArticles();
-
-  btnAll.addEventListener('click', displayAll);
-  btnCakes.addEventListener('click', () => selectType(getType, btnCakes));
-  btnCupcakes.addEventListener('click', () => selectType(getType, btnCupcakes));
-  btnSweets.addEventListener('click', () => selectType(getType, btnSweets));
-  btnDoughnuts.addEventListener('click', () =>
-    selectType(getType, btnDoughnuts)
-  );
+  btnAll.addEventListener('click', toggleDisplay);
+  btnCakes.addEventListener('click', (event) => filterArticles(event));
+  btnCupcakes.addEventListener('click', (event) => filterArticles(event));
+  btnSweets.addEventListener('click', (event) => filterArticles(event));
+  btnDoughnuts.addEventListener('click', (event) => filterArticles(event));
+  frmInput.addEventListener('input', (event) => filterArticles(event));
 })();
