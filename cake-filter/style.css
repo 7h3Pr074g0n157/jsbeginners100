@@ -131,8 +131,10 @@ section#store {
 }
 
 section#store section#articles {
+  min-height: 80vh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 section#store section#head {
