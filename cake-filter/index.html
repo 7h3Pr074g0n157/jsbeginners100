@@ -3,19 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <title>Grandma's</title>
+    <script
+      src="https://kit.fontawesome.com/1137df6827.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <nav>
-      <span>img</span>
+      <span><img src="./images/logo.svg" alt="Logo" /></span>
       <ul>
         <li><a href="#landing">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#store">Store</a></li>
       </ul>
-      <span>Tel</span><span>Shoppingcart</span>
+      <span><i class="fas fa-phone"></i></span
+      ><span><i class="fas fa-shopping-cart"></i></span>
     </nav>
     <section id="landing">
       <header>
@@ -25,7 +30,7 @@
     </section>
     <section id="about">
       <div id="text">
-        <h2>About Us</h2>
+        <h2>About <span>Us</span></h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
           aliquam voluptas beatae vitae expedita consectetur nesciunt quia
@@ -36,7 +41,9 @@
       </div>
       <div id="pic">
         <figure>
-          <img src="images/sweets-1.jpg" alt="" />
+          <div id="img-border">
+            <img src="images/sweets-1.jpg" alt="" />
+          </div>
         </figure>
       </div>
     </section>
