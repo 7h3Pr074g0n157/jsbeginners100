@@ -28,6 +28,21 @@ p {
   font-size: 1.6rem;
 }
 
+button {
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: transparent;
+  font-family: inherit;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: #000;
+  color: #ef7998;
+  cursor: pointer;
+}
+
 nav {
   height: 60px;
   padding: 15px;
@@ -58,13 +73,6 @@ nav ul {
 #landing h1 {
   color: #fff;
   font-size: 4rem;
-}
-
-#landing button {
-  padding: 10px;
-  border: 2px solid #000;
-  background-color: transparent;
-  text-transform: uppercase;
 }
 
 #about {
@@ -140,17 +148,6 @@ section#store div#sort {
   width: 70%;
   display: flex;
   justify-content: space-evenly;
-}
-
-section#store div#sort button {
-  padding: 10px;
-  border: 1px solid #000;
-}
-
-section#store div#sort button:hover {
-  background-color: #000;
-  color: #ef7998;
-  cursor: pointer;
 }
 
 section#store div#search {
