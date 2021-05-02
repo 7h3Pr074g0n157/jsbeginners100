@@ -103,7 +103,7 @@ nav ul {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  border: 5px solid rgb(241, 228, 148);
+  border: 5px solid rgb(249, 228, 148);
   transform: translate(-2rem, -2rem);
   transition: transform 1s ease;
 }
@@ -121,7 +121,7 @@ nav ul {
   transform: translate(0, 0);
 }
 
-section#store {
+#store {
   padding: 5% 0;
   display: flex;
   flex-direction: column;
@@ -130,14 +130,14 @@ section#store {
   background-color: #eeeeee;
 }
 
-section#store section#articles {
+#store #articles {
   min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-section#store section#head {
+#store #head {
   width: 100%;
   margin: 5% 0;
   display: flex;
@@ -146,44 +146,95 @@ section#store section#head {
   align-items: center;
 }
 
-section#store div#sort {
+#store #sort {
   width: 70%;
   display: flex;
   justify-content: space-evenly;
 }
 
-section#store div#search {
+#store #search {
   width: 50%;
   display: flex;
   justify-content: center;
 }
 
-section#store div#search input {
+#store #search input {
   width: 500px;
   border: 1px solid #ced4da;
 }
 
-section#store div#search button {
+#store #search button {
   width: 40px;
   height: 40px;
   border: none;
   background-color: #ef7998;
 }
 
-section#store section#articles {
+#store #articles {
   width: 100%;
   display: grid;
   grid-template-columns: 350px 350px 350px;
-  /* grid-template-rows: 335px 335px 335px 335px; */
+  grid-template-rows: 335px 335px 335px 335px;
   gap: 35px 35px;
 }
 
-section#store section#articles img {
-  max-width: 100%;
-  max-height: auto;
+#store #articles figure {
+  width: 100%;
+  height: 100%;
+  background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-section#store section#articles figcaption {
+#store #articles figure div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#store #articles .cart-label {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-top-left-radius: 1rem;
+  background-color: rgb(249, 228, 148);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  transform: translate(350px, 0);
+  transition: transform 1s ease;
+}
+
+#store #articles img {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
+}
+
+#store #articles .cart-label i {
+  color: #000;
+  transform: color 1s ease;
+}
+
+#store #articles div:hover img {
+  transform: scale(1.2);
+  transition: transform 1s ease;
+}
+
+#store #articles div:hover .cart-label {
+  transform: translate(calc(350px - 2.5rem), -2.5rem);
+  transition: transform 1s ease;
+}
+
+#store #articles .cart-label:hover i {
+  color: #fff;
+  transform: all 1s ease;
+}
+
+#store #articles figcaption {
   box-sizing: border-box;
   width: 100%;
   height: 75px;
@@ -194,6 +245,6 @@ section#store section#articles figcaption {
   background-color: #fff;
 }
 
-section#store section#articles span {
+#store #articles span {
   color: #000;
 }
