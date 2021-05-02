@@ -41,4 +41,25 @@
   btnSweets.addEventListener('click', (event) => filterArticles(event));
   btnDoughnuts.addEventListener('click', (event) => filterArticles(event));
   frmInput.addEventListener('input', (event) => filterArticles(event));
+
+  for (let article of articles) {
+    article.addEventListener('click', (event) => {
+      const articleJumbotron = document.getElementById('article-jumbotron');
+      const clickedArticle = event.target;
+      const img = document.importNode(clickedArticle);
+      if (articleJumbotron === null) {
+        const figure = document.createElement('figure');
+        figure.setAttribute('id', 'article-jumbotron');
+        figure.style.top = window.screen.height / 2 - 250 + 'px';
+        figure.appendChild(img);
+        document.getElementById('articles').appendChild(figure);
+      } else {
+        document
+          .getElementById('article-jumbotron')
+          .removeChild(articleJumbotron.firstChild);
+        document.getElementById('article-jumbotron').appendChild(img);
+      }
+      articleJumbotron.style.top = window.screen.height / 2 - 250 + 'px';
+    });
+  }
 })();
