@@ -220,12 +220,13 @@ nav ul {
   transform: color 1s ease;
 }
 
-#store #articles div:hover img {
+#store #articles .img-container:hover img {
+  cursor: pointer;
   transform: scale(1.2);
   transition: transform 1s ease;
 }
 
-#store #articles div:hover .cart-label {
+#store #articles .img-container:hover .cart-label {
   transform: translate(calc(350px - 2.5rem), -2.5rem);
   transition: transform 1s ease;
 }
@@ -250,18 +251,40 @@ nav ul {
   color: #000;
 }
 
-#article-jumbotron {
+/* Modal Window */
+#container-jumbotron {
   width: 600px !important;
   height: 600px !important;
-  /* border: 5px solid red; */
-  position: absolute;
-  /* top: 0; */
-  left: calc(50vw - 500px/2);
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: red;
 }
 
-#article-jumbotron img {
+#container-jumbotron span {
   width: 100%;
-  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#close-img-jumbotron {
+  cursor: pointer;
+}
+
+#img-frame-jumbotron {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: green;
+}
+
+#img-frame-jumbotron img {
+  max-width: 100% !important;
+}
+
+#img-frame-jumbotron button {
+  border: none;
+  display: block;
+  /* background-color: blue; */
 }
