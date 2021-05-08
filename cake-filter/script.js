@@ -5,11 +5,11 @@
   const btnSweets = document.getElementById('sweets');
   const btnDoughnuts = document.getElementById('doughnuts');
   const frmInput = document.getElementById('input');
-  const articles = document.querySelectorAll('#articles figure');
+  const articles = document.getElementsByClassName('article-container');
 
   function toggleDisplay(display) {
     for (let article of articles) {
-      article.style.display = display ? 'block' : 'none';
+      article.style.display = display ? 'grid' : 'none';
     }
   }
 
@@ -17,7 +17,7 @@
     toggleDisplay(false);
 
     for (let article of filteredArticles) {
-      article.style.display = 'block';
+      article.style.display = 'grid';
     }
   }
 
