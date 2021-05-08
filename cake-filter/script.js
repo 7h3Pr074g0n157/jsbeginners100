@@ -49,6 +49,9 @@
       const img = document.importNode(clickedArticle);
 
       if (imgJumbotron === null) {
+        const divDarkenSurrounding = document.createElement('div');
+        divDarkenSurrounding.setAttribute('id', 'darken-surrounding');
+
         const divContainer = document.createElement('div');
         divContainer.setAttribute('id', 'container-jumbotron');
 
@@ -71,24 +74,22 @@
         divImgFrame.appendChild(img);
         divImgFrame.appendChild(btnRight);
         divContainer.appendChild(divImgFrame);
+        divDarkenSurrounding.appendChild(divContainer);
 
-        document.getElementById('articles').appendChild(divContainer);
+        document.body.appendChild(divDarkenSurrounding);
         // } else {
         // document
         //   .getElementById('article-jumbotron')
         //   .removeChild(imgJumbotron.firstChild);
         // document.getElementById('img-jumbotron').appendChild(img);
       }
-      // articleJumbotron.style.top = window.screen.height / 2 - 250 + 'px';
 
       const closeJumbotron = document.getElementById('close-img-jumbotron');
-      if (closeJumbotron !== null) {
-        closeJumbotron.addEventListener('click', () => {
-          document
-            .getElementById('articles')
-            .removeChild(document.getElementById('container-jumbotron'));
-        });
-      }
+      closeJumbotron.addEventListener('click', () => {
+        document.body.removeChild(
+          document.getElementById('darken-surrounding')
+        );
+      });
     });
   }
 })();
