@@ -12,15 +12,21 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <nav>
-      <span><img src="./images/logo.svg" alt="Logo" /></span>
-      <ul>
+    <nav id="nav">
+      <span class="nav-element">
+        <img class="nav-logo" src="images/logo.svg" alt="" />
+      </span>
+      <ul class="nav-element">
         <li><a href="#landing">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#store">Store</a></li>
       </ul>
-      <span><i class="fas fa-phone"></i></span>
-      <span><i class="fas fa-shopping-cart"></i></span>
+      <span class="nav-element"><i class="fas fa-phone"></i>+ 123 456 789</span>
+      <span class="nav-element"
+        ><span class="nav-cart"
+          ><i class="fas fa-shopping-cart"></i>2 Items - $10.49</span
+        ></span
+      >
     </nav>
     <section id="landing">
       <header>
@@ -48,106 +54,142 @@
       </div>
     </section>
     <section id="store">
-      <section id="head">
+      <section id="head" class="store-head">
         <h2>Our <span>Store</span></h2>
-        <div id="sort">
+        <div id="sort" class="store-sort">
           <button id="all">All</button>
           <button id="cakes">Cakes</button>
           <button id="cupcakes">Cupcakes</button>
           <button id="sweets">Sweets</button>
           <button id="doughnuts">Doughnuts</button>
         </div>
-        <div id="search">
+        <div id="search" class="store-search">
           <button>LUPE</button
-          ><input id="input" type="text" placeholder="item..." />
+          ><input
+            id="input"
+            class="store-search-input"
+            type="text"
+            placeholder="item..."
+          />
         </div>
       </section>
-      <section id="articles">
-        <figure data-type="sweets" data-price="5">
-          <div class="img-container">
+      <section id="articles" class="store-articles">
+        <article class="article-container" data-type="sweets" data-price="5">
+          <figure class="img-container">
             <img src="images/sweets-1.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Sweet Item</span><span>$ 5</span></figcaption>
-        </figure>
-        <figure data-type="cupcakes" data-price="5">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Sweet Item</span><span>$ 5</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="cupcakes" data-price="5">
+          <figure class="img-container">
             <img src="images/cupcake-1.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-
-          <figcaption><span>Cupcake Item</span><span>$ 5</span></figcaption>
-        </figure>
-        <figure data-type="cakes" data-price="5">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Cupcake Item</span><span>$ 5</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="cakes" data-price="5">
+          <figure class="img-container">
             <img src="images/cake-1.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Cake Item</span><span>$ 5</span></figcaption>
-        </figure>
-        <figure data-type="doughnuts" data-price="5">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Cake Item</span><span>$ 5</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="doughnuts" data-price="5">
+          <figure class="img-container">
             <img src="images/doughnut-1.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Doughnut Item</span><span>$ 5</span></figcaption>
-        </figure>
-        <figure data-type="sweets" data-price="10">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Doughnut Item</span><span>$ 5</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="sweets" data-price="10">
+          <figure class="img-container">
             <img src="images/sweets-2.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Sweet Item</span><span>$ 10</span></figcaption>
-        </figure>
-        <figure data-type="cupcakes" data-price="10">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Sweet Item</span><span>$ 10</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="cupcakes" data-price="10">
+          <figure class="img-container">
             <img src="images/cupcake-2.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Cupcake Item</span><span>$ 10</span></figcaption>
-        </figure>
-        <figure data-type="cakes" data-price="10">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Cupcake Item</span><span>$ 10</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="cakes" data-price="10">
+          <figure class="img-container">
             <img src="images/cake-2.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Cake Item</span><span>$ 10</span></figcaption>
-        </figure>
-        <figure data-type="doughnuts" data-price="10">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Cake Item</span><span>$ 10</span>
+          </figcaption>
+        </article>
+        <article
+          class="article-container"
+          data-type="doughnuts"
+          data-price="10"
+        >
+          <figure class="img-container">
             <img src="images/doughnut-2.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Doughnut Item</span><span>$ 10</span></figcaption>
-        </figure>
-        <figure data-type="sweets" data-price="15">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Doughnut Item</span><span>$ 10</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="sweets" data-price="15">
+          <figure class="img-container">
             <img src="images/sweets-3.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Sweet Item</span><span>$ 15</span></figcaption>
-        </figure>
-        <figure data-type="cupcakes" data-price="15">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Sweet Item</span><span>$ 15</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="cupcakes" data-price="15">
+          <figure class="img-container">
             <img src="images/cupcake-3.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Cupcake Item</span><span>$ 15</span></figcaption>
-        </figure>
-        <figure data-type="cakes" data-price="15">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Cupcake Item</span><span>$ 15</span>
+          </figcaption>
+        </article>
+        <article class="article-container" data-type="cakes" data-price="15">
+          <figure class="img-container">
             <img src="images/cake-3.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Cake Item</span><span>$ 15</span></figcaption>
-        </figure>
-        <figure data-type="doughnuts" data-price="15">
-          <div class="img-container">
+          </figure>
+          <figcaption class="article-caption">
+            <span>Cake Item</span><span>$ 15</span>
+          </figcaption>
+        </article>
+        <article
+          class="article-container"
+          data-type="doughnuts"
+          data-price="15"
+        >
+          <figure class="img-container">
             <img src="images/doughnut-3.jpg" />
             <span class="cart-label"><i class="fas fa-shopping-cart"></i></span>
-          </div>
-          <figcaption><span>Doughnut Item</span><span>$ 15</span></figcaption>
-        </figure>
+          </figure>
+          <figcaption class="article-caption">
+            <span>Doughnut Item</span><span>$ 15</span>
+          </figcaption>
+        </article>
       </section>
     </section>
   </body>

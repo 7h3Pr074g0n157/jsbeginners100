@@ -29,6 +29,7 @@ p {
 }
 
 button {
+  min-height: 40px;
   padding: 10px;
   border: 1px solid #000;
   border-radius: 4px;
@@ -43,16 +44,39 @@ button:hover {
   cursor: pointer;
 }
 
-nav {
+#nav {
   height: 60px;
-  padding: 15px;
   display: flex;
+  justify-content: space-between;
   background-color: #fff;
 }
 
-nav ul {
+.nav-element {
+  width: 25%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 1rem;
+}
+
+.nav-cart {
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  color: #000;
+  font-size: 1rem;
+}
+
+#nav ul {
+  justify-content: space-evenly;
   list-style-type: none;
+}
+
+.nav-element a {
+  font-size: 1rem;
+  color: #ef7998;
+  text-decoration: none;
 }
 
 #landing {
@@ -75,6 +99,13 @@ nav ul {
   font-size: 4rem;
 }
 
+#landing button {
+  height: initial;
+  font-size: 2em;
+  font-weight: 900;
+  border-width: 2px;
+}
+
 #about {
   height: 600px;
   display: flex;
@@ -86,7 +117,6 @@ nav ul {
 #pic {
   width: 50%;
   margin: 5%;
-  /* background-color: red; */
 }
 
 #text h2,
@@ -122,80 +152,67 @@ nav ul {
 }
 
 #store {
+  width: 100%;
+  min-height: 80vh;
   padding: 5% 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
   background-color: #eeeeee;
 }
 
-#store #articles {
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-#store #head {
-  width: 100%;
-  margin: 5% 0;
+.store-head {
+  margin-bottom: 5%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
 }
 
-#store #sort {
-  width: 70%;
+.store-sort {
+  width: 540px;
+  padding: 5%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
-#store #search {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-}
-
-#store #search input {
+.store-search-input {
   width: 500px;
+  height: 40px;
   border: 1px solid #ced4da;
 }
 
-#store #search button {
+.store-search button {
   width: 40px;
   height: 40px;
   border: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   background-color: #ef7998;
 }
 
-#store #articles {
-  width: 100%;
+.store-articles {
   position: relative;
   display: grid;
-  grid-template-columns: 350px 350px 350px;
-  grid-template-rows: 335px 335px 335px 335px;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 350px);
+  grid-template-rows: repeat(4, 335px);
   gap: 35px 35px;
 }
 
-#store #articles figure {
-  width: 100%;
-  height: 100%;
-  background: red;
+.article-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-#store #articles figure div {
+.img-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
 }
 
-#store #articles .cart-label {
+.img-container .cart-label {
   width: 2.5rem;
   height: 2.5rem;
   border-top-left-radius: 1rem;
@@ -209,34 +226,34 @@ nav ul {
   transition: transform 1s ease;
 }
 
-#store #articles img {
+.img-container img {
   width: 100%;
   height: 100%;
   transition: transform 1s ease;
 }
 
-#store #articles .cart-label i {
+.img-container .cart-label i {
   color: #000;
   transform: color 1s ease;
 }
 
-#store #articles .img-container:hover img {
+.img-container:hover img {
   cursor: pointer;
   transform: scale(1.2);
   transition: transform 1s ease;
 }
 
-#store #articles .img-container:hover .cart-label {
+.img-container:hover .cart-label {
   transform: translate(calc(350px - 2.5rem), -2.5rem);
   transition: transform 1s ease;
 }
 
-#store #articles .cart-label:hover i {
+.cart-label:hover i {
   color: #fff;
   transform: all 1s ease;
 }
 
-#store #articles figcaption {
+.article-caption {
   box-sizing: border-box;
   width: 100%;
   height: 75px;
@@ -247,7 +264,7 @@ nav ul {
   background-color: #fff;
 }
 
-#store #articles span {
+.article-caption span {
   color: #000;
 }
 
