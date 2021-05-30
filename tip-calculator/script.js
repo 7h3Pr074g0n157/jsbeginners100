@@ -102,15 +102,15 @@ class Calculation extends Component {
     this.amount = document.getElementById('input-amount').value;
     this.people = document.getElementById('input-people').value;
     const selections = document.getElementById('select-tip');
-    const selectedArea = selections.options[selections.selectedArea].value;
-    this.tip = selectedArea;
+    // const selectedArea = selections.options[selections.selectedArea].value;
+    // this.tip = selectedArea;
     console.log('getInput');
 
     this.calculate();
   }
 
   renderSubmit() {
-    const submitBtn = this.createComponent('button', '#form', 'btn', [
+    const submitBtn = this.createComponent('div', '#form', 'btn', [
       { name: 'type', value: 'submit' },
       { name: 'id', value: 'submit-btn' },
     ]);
