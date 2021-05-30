@@ -5,7 +5,9 @@
   const btnSweets = document.getElementById('sweets');
   const btnDoughnuts = document.getElementById('doughnuts');
   const frmInput = document.getElementById('input');
-  const articles = document.getElementsByClassName('article-container');
+  const articlesCollection =
+    document.getElementsByClassName('article-container');
+  const articles = [...articlesCollection];
 
   function toggleDisplay(display) {
     for (let article of articles) {
@@ -26,7 +28,7 @@
       event.target.id == 'input' ? event.target.value : event.target.id;
     const regex = new RegExp(`^${toFilter}`, 'i');
 
-    const filteredArticles = [...articles].filter((article) => {
+    const filteredArticles = articles.filter((article) => {
       return (
         regex.test(article.dataset.type) || regex.test(article.dataset.price)
       );
@@ -44,51 +46,57 @@
 
   for (let article of articles) {
     article.addEventListener('click', (event) => {
-      const imgJumbotron = document.getElementById('img-jumbotron');
-      const clickedArticle = event.target;
-      const img = document.importNode(clickedArticle);
+      const clicked = event.target.parentElement.parentElement;
+      console.log(clicked);
+      const clickedImg = clicked.cloneNode(true);
 
-      if (imgJumbotron === null) {
-        const divDarkenSurrounding = document.createElement('div');
-        divDarkenSurrounding.setAttribute('id', 'darken-surrounding');
+      const divDarkenSurrounding = document.createElement('div');
+      divDarkenSurrounding.setAttribute('id', 'darken-surrounding');
+      // console.dir(clicked);
+      divDarkenSurrounding.appendChild(clickedImg);
+      // const divContainer = document.createElement('div');
+      // divContainer.setAttribute('id', 'container-jumbotron');
 
-        const divContainer = document.createElement('div');
-        divContainer.setAttribute('id', 'container-jumbotron');
+      // const spanClose = document.createElement('span');
+      // spanClose.innerHTML =
+      //   '<i id="close-img-jumbotron" class="fas fa-times"></i>';
+      // divContainer.appendChild(spanClose);
 
-        const spanClose = document.createElement('span');
-        spanClose.innerHTML =
-          '<i id="close-img-jumbotron" class="fas fa-times"></i>';
-        divContainer.appendChild(spanClose);
+      // const divImgFrame = document.createElement('div');
+      // divImgFrame.setAttribute('id', 'img-frame-jumbotron');
 
-        const divImgFrame = document.createElement('div');
-        divImgFrame.setAttribute('id', 'img-frame-jumbotron');
+      // const btnLeft = document.createElement('button');
+      // const btnRight = document.createElement('button');
+      // btnLeft.setAttribute('id', 'btn-left');
+      // btnRight.setAttribute('id', 'btn-right');
+      // btnLeft.innerHTML = '<i class="fas fa-chevron-left"></i>';
+      // btnRight.innerHTML = '<i class="fas fa-chevron-right"></i>';
+      // const figure = document.createElement('figure');
+      // figure.setAttribute('id', 'img-jumbotron');
+      // divImgFrame.appendChild(btnLeft);
+      // divImgFrame.appendChild(clickedImg);
+      // divImgFrame.appendChild(btnRight);
+      // divContainer.appendChild(divImgFrame);
+      // divDarkenSurrounding.appendChild(divContainer);
 
-        const btnLeft = document.createElement('button');
-        const btnRight = document.createElement('button');
-        btnLeft.innerHTML = '<i id="btn-left" class="fas fa-chevron-left"></i>';
-        btnRight.innerHTML =
-          '<i id="btn-right" class="fas fa-chevron-right"></i>';
-        const figure = document.createElement('figure');
-        figure.setAttribute('id', 'img-jumbotron');
-        divImgFrame.appendChild(btnLeft);
-        divImgFrame.appendChild(img);
-        divImgFrame.appendChild(btnRight);
-        divContainer.appendChild(divImgFrame);
-        divDarkenSurrounding.appendChild(divContainer);
+      document.body.appendChild(divDarkenSurrounding);
 
-        document.body.appendChild(divDarkenSurrounding);
-        // } else {
-        // document
-        //   .getElementById('article-jumbotron')
-        //   .removeChild(imgJumbotron.firstChild);
-        // document.getElementById('img-jumbotron').appendChild(img);
-      }
-
-      const closeJumbotron = document.getElementById('close-img-jumbotron');
-      closeJumbotron.addEventListener('click', () => {
+      spanClose.addEventListener('click', () => {
         document.body.removeChild(
           document.getElementById('darken-surrounding')
         );
+      });
+      btnRight.addEventListener('click', (event) => {
+        const imgCollection = document.querySelectorAll(
+          '#img-frame-jumbotron img'
+        );
+        const currImg = document.querySelector('#img-frame-jumbotron img');
+        console.log(currImg);
+        for (let img in imgCollection) {
+          if (currImg.dataset.id == imgCollection[img].dataset.id) {
+            console.log(imgCollection[img]);
+          }
+        }
       });
     });
   }

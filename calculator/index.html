@@ -6,31 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
-    
+    <script defer src="script.js"></script>
   </head>
   <body>
     <div class="calculator">
       <form class="display-block">
-        <input type="text" class="screen" value="" />
+        <input type="text" class="screen" id="screen" value="0" />
       </form>
       <div class="key-block">
-        <div class="keys operation-keys plus-key">+</div>
-        <div class="keys operation-keys minus-key">-</div>
-        <div class="keys operation-keys times-key">*</div>
-        <div class="keys operation-keys devide-key">/</div>
-        <div class="keys dot-key">.</div>
-        <div class="keys nine-key">9</div>
-        <div class="keys eight-key">8</div>
-        <div class="keys seven-key">7</div>
-        <div class="keys six-key">6</div>
-        <div class="keys five-key">5</div>
-        <div class="keys four-key">4</div>
-        <div class="keys three-key">3</div>
-        <div class="keys two-key">2</div>
-        <div class="keys one-key">1</div>
-        <div class="keys sero-key">0</div>
-        <div class="keys equal-key">=</div>
-        <div class="keys cancel-key">C</div>
+        <div
+          data-key-value=""
+          data-key-kind="op"
+          class="keys operation-keys plus-key"
+        >
+          +
+        </div>
+        <div
+          data-key-value=""
+          data-key-kind="op"
+          class="keys operation-keys minus-key"
+        >
+          -
+        </div>
+        <div
+          data-key-value=""
+          data-key-kind="op"
+          class="keys operation-keys times-key"
+        >
+          *
+        </div>
+        <div
+          data-key-value=""
+          data-key-kind="op"
+          class="keys operation-keys devide-key"
+        >
+          /
+        </div>
+        <div data-key-value="" data-key-kind="dot" class="keys dot-key">.</div>
+        <div data-key-value="" data-key-kind="num" class="keys nine-key">9</div>
+        <div data-key-value="" data-key-kind="num" class="keys eight-key">
+          8
+        </div>
+        <div data-key-value="" data-key-kind="num" class="keys seven-key">
+          7
+        </div>
+        <div data-key-value="" data-key-kind="num" class="keys six-key">6</div>
+        <div data-key-value="" data-key-kind="num" class="keys five-key">5</div>
+        <div data-key-value="" data-key-kind="num" class="keys four-key">4</div>
+        <div data-key-value="" data-key-kind="num" class="keys three-key">
+          3
+        </div>
+        <div data-key-value="" data-key-kind="num" class="keys two-key">2</div>
+        <div data-key-value="" data-key-kind="num" class="keys one-key">1</div>
+        <div data-key-value="" data-key-kind="num" class="keys sero-key">0</div>
+        <div data-key-value="" data-key-kind="eq" class="keys equal-key">=</div>
+        <div data-key-value="" data-key-kind="clr" class="keys cancel-key">
+          C
+        </div>
       </div>
     </div>
   </body>
