@@ -21,7 +21,8 @@ function calculateOutput(bill, people, tip) {
   renderOutput(results);
 }
 
-function submitHandler() {
+function submitHandler(event) {
+  // event.preventDefault();
   const billInput = document.getElementById('bill-input').value;
   const peopleInput = document.getElementById('people-input').value;
   const tipSelect = document.getElementById('tip-selection');
