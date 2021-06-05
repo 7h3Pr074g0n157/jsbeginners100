@@ -4,7 +4,6 @@ const todoInput = document.getElementById('todo-input');
 const todoInputBtn = document.getElementById('todo-input__btn');
 const todoList = document.getElementById('todo-list');
 const clearBtn = document.getElementById('clear-btn');
-// const todos = [];
 
 function deleteAllItems() {
   while (todoList.children.length > 0) {
@@ -14,7 +13,6 @@ function deleteAllItems() {
 
 function deleteTodoItem(event) {
   const targetItem = event.target.parentElement;
-  console.log(targetItem);
   todoList.removeChild(targetItem);
 }
 
@@ -30,24 +28,22 @@ function createTodoItem(todo) {
   li.append(storeTodo);
   li.append(deleteTodo);
 
-  // todos.push(li);
   todoList.append(li);
 }
 
-function storeTodoHandler(event) {
-  event.preventDefault();
-  console.log(event); // which === 13; keyCode === 13
+function storeTodoHandler() {
   const todo = todoInput.value;
-  if (
-    (event.keyCode === 13 || event.which === 13 || event.type === 'click') &&
-    todo
-  ) {
+  if (todo !== '') {
     createTodoItem(todo);
     todoInput.value = '';
-    // console.log(todos);
   }
 }
 
 todoInputBtn.addEventListener('click', storeTodoHandler);
 clearBtn.addEventListener('click', deleteAllItems);
-document.addEventListener('keydown', storeTodoHandler);
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    storeTodoHandler();
+  }
+});
