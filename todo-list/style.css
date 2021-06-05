@@ -80,8 +80,20 @@ li {
   justify-content: space-between;
   font-size: 1rem;
   /* background-color: blue; */
+  /* margin: auto auto; */
 }
 
 li span {
   padding: 0 1rem;
+}
+
+.delete-todo {
+  border-radius: 50%;
+  font-size: 1.25rem;
+  background-color: coral;
+  color: #fff;
+}
+
+.delete-todo:hover {
+  cursor: pointer;
 }

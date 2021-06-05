@@ -23,8 +23,10 @@ function createTodoItem(todo) {
   const storeTodo = document.createElement('span');
   const deleteTodo = document.createElement('span');
   storeTodo.textContent = todo;
-  deleteTodo.textContent = '🚯';
+  deleteTodo.innerHTML = '&#x2613;';
+  deleteTodo.className = 'delete-todo';
   deleteTodo.addEventListener('click', deleteTodoItem);
+  console.log(li);
   li.append(storeTodo);
   li.append(deleteTodo);
 
@@ -32,12 +34,20 @@ function createTodoItem(todo) {
   todoList.append(li);
 }
 
-function storeTodoHandler() {
+function storeTodoHandler(event) {
+  event.preventDefault();
+  console.log(event); // which === 13; keyCode === 13
   const todo = todoInput.value;
-  createTodoItem(todo);
-  todoInput.value = '';
-  // console.log(todos);
+  if (
+    (event.keyCode === 13 || event.which === 13 || event.type === 'click') &&
+    todo
+  ) {
+    createTodoItem(todo);
+    todoInput.value = '';
+    // console.log(todos);
+  }
 }
 
 todoInputBtn.addEventListener('click', storeTodoHandler);
 clearBtn.addEventListener('click', deleteAllItems);
+document.addEventListener('keydown', storeTodoHandler);
