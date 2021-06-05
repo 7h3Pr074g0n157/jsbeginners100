@@ -24,7 +24,7 @@ function createTodoItem(todo) {
   deleteTodo.innerHTML = '&#x2613;';
   deleteTodo.className = 'delete-todo';
   deleteTodo.addEventListener('click', deleteTodoItem);
-  console.log(li);
+
   li.append(storeTodo);
   li.append(deleteTodo);
 
@@ -45,5 +45,12 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     event.preventDefault();
     storeTodoHandler();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Delete' && event.altKey) {
+    console.log(event);
+    deleteAllItems();
   }
 });
