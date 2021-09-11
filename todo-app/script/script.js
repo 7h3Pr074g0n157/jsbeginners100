@@ -17,12 +17,12 @@ function getStorage() {
 function removeElement(e) {
   const targetElement = e.target;
   const id = targetElement.id.split('-')[1];
-  const todos = getStorage();
+  let todos = getStorage();
 
-  todos.filter((todo) => {
-    if (todo.id == id) console.log(todo);
+  todos = todos.filter((todo) => {
+    if (todo.id != id) return todo;
   });
-
+  localStorage.setItem('todos', JSON.stringify(todos));
   targetElement.parentNode.remove();
   countTodo(-1);
 }
