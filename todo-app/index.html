@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./script/script.js" defer></script>
+    <title>Todos-app</title>
+  </head>
+  <body>
+    <div id="content-box">
+      <header class="header-top">
+        <h1>To-do App</h1>
+        <p>What do you need to do?</p>
+      </header>
+      <main>
+        <section class="sorting-section" id="sorting-section">
+          <input
+            class="sorting-section__filter"
+            type="text"
+            placeholder="Filter todos"
+          />
+          <label for="hide-completed">
+            <input type="checkbox" id="hide-completed" />Hide completed
+          </label>
+        </section>
+        <section id="list-section">
+          <header id="list-section-header">
+            <h2>You have <span id="todo-remaining">0</span> todo left</h2>
+          </header>
+          <ul id="list-section-listing"></ul>
+          <div id="list-section-add">
+            <input class="new-todo" type="text" placeholder="New Todo" />
+            <button class="btn-add">Submit</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

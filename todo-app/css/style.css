@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+
+html,
+body {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type='text'] {
+  height: 3rem;
+  color: #000;
+}
+
+.header-top {
+  width: 100%;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(270, 40%, 44%);
+  font-size: 2rem;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsl(264, 6%, 17%);
+  font-size: 1.6rem;
+}
+
+.sorting-section {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(266, 7%, 21%);
+}
+
+.todo-item {
+  height: 5rem;
+  width: 50rem;
+  padding: 2rem;
+  border: 1px solid hsl(267, 7%, 26%);
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(266, 7%, 21%);
+  list-style-type: none;
+}
+
+.todo-item label {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.remove {
+  color: hsl(240, 0%, 58%);
+}
+
+.remove:hover {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-add {
+  padding: 1rem;
+  margin-left: 2rem;
+  border: none;
+  background-color: hsl(269, 40%, 45%);
+}
