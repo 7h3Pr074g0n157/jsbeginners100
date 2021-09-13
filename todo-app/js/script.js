@@ -106,3 +106,6 @@ function setStorage() {
 
 btnAdd.addEventListener('click', setStorage);
 hideCompleteBox.addEventListener('change', hideCompleted);
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('todos') !== null) createList();
+});
