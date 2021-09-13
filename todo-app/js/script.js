@@ -2,7 +2,6 @@ const inputFilter = document.querySelector('.sorting-section__filter');
 const btnAdd = document.querySelector('.btn-add');
 const hideCompleteBox = document.getElementById('hide-completed');
 
-localStorage.clear();
 localStorage.setItem('todos', JSON.stringify([]));
 let id = 0;
 
@@ -21,25 +20,28 @@ function setCompleted(e) {
 
   const id = parseInt(targetElement.id.split('-')[1]);
   let todos = getStorage();
-  
-  todos = todos.map((todo) => {
-    return todo.id === id ?  {
-        id: todo.id,
-        text: todo.text,
-        completed: !todo.completed,
-      } : todo;
 
+  todos = todos.map((todo) => {
+    return todo.id === id
+      ? {
+          id: todo.id,
+          text: todo.text,
+          completed: !todo.completed,
+        }
+      : todo;
   });
 
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function hideCompleted() {
-  const todos = getStorage().filter(todo => todo.completed);
-  
+  const todos = getStorage().filter((todo) => todo.completed);
+
   for (const todo of todos) {
     if (todo.completed) {
-      document.querySelector(`li[data-id="${todo.id}"]`).classList.toggle('todo-completed')
+      document
+        .querySelector(`li[data-id="${todo.id}"]`)
+        .classList.toggle('todo-completed');
     }
   }
 }
