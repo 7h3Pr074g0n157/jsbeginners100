@@ -64,6 +64,10 @@ main {
   flex-direction: row-reverse;
 }
 
+.todo-completed {
+  display: none;
+}
+
 .remove {
   color: hsl(240, 0%, 58%);
 }

@@ -1,8 +1,14 @@
 const inputFilter = document.querySelector('.sorting-section__filter');
 const btnAdd = document.querySelector('.btn-add');
+const hideCompleteBox = document.getElementById('hide-completed');
+
 localStorage.clear();
 localStorage.setItem('todos', JSON.stringify([]));
 let id = 0;
+
+function getStorage() {
+  return JSON.parse(localStorage.getItem('todos'));
+}
 
 function countTodo(changeValue) {
   const todoRemaining = document.getElementById('todo-remaining');
@@ -10,13 +16,37 @@ function countTodo(changeValue) {
   todoRemaining.textContent = newRemaining;
 }
 
-function getStorage() {
-  return JSON.parse(localStorage.getItem('todos'));
+function setCompleted(e) {
+  const targetElement = e.target;
+
+  const id = parseInt(targetElement.id.split('-')[1]);
+  let todos = getStorage();
+  
+  todos = todos.map((todo) => {
+    return todo.id === id ?  {
+        id: todo.id,
+        text: todo.text,
+        completed: !todo.completed,
+      } : todo;
+
+  });
+
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+function hideCompleted() {
+  const todos = getStorage().filter(todo => todo.completed);
+  
+  for (const todo of todos) {
+    if (todo.completed) {
+      document.querySelector(`li[data-id="${todo.id}"]`).classList.toggle('todo-completed')
+    }
+  }
 }
 
 function removeElement(e) {
   const targetElement = e.target;
-  const id = targetElement.id.split('-')[1];
+  const id = parseInt(targetElement.id.split('-')[1]);
   let todos = getStorage();
 
   todos = todos.filter((todo) => {
@@ -35,10 +65,12 @@ function createList() {
   for (const todo of todos) {
     const li = document.createElement('li');
     li.className = 'todo-item';
+    li.setAttribute('data-id', todo.id);
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = 'checkbox-' + todo.id;
+    checkbox.addEventListener('change', setCompleted);
 
     const label = document.createElement('label');
     label.textContent = todo.text;
@@ -69,3 +101,4 @@ function setStorage() {
 }
 
 btnAdd.addEventListener('click', setStorage);
+hideCompleteBox.addEventListener('change', hideCompleted);
