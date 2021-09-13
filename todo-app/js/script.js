@@ -2,11 +2,13 @@ const inputFilter = document.querySelector('.sorting-section__filter');
 const btnAdd = document.querySelector('.btn-add');
 const hideCompleteBox = document.getElementById('hide-completed');
 
-localStorage.setItem('todos', JSON.stringify([]));
 let id = 0;
 
 function getStorage() {
-  return JSON.parse(localStorage.getItem('todos'));
+  // localStorage.setItem('todos', JSON.stringify([]));
+  const storage = localStorage.getItem('todos');
+
+  return storage === null ? [] : JSON.parse(storage);
 }
 
 function countTodo(changeValue) {
